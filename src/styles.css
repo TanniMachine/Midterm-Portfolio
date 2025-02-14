@@ -1,39 +1,384 @@
+/* start of sun-moon light mode-dark mode button css */
+@import "https://unpkg.com/open-props/easings.min.css";
+
+/* code for changing icon colors dependent on light or dark mode */
+
+:root {
+    --icon-fill: #333;
+    --icon-fill-hover: #666;
+}
+
+[data-theme="dark"] {
+    --icon-fill: #fff;
+    --icon-fill-hover: #e0e0e0;
+}
+
+/* ensure the sun beams use the icon color */
+.sun-and-moon > .sun-beams {
+    stroke: var(--icon-fill);
+}
+
+/* specific hover states */
+.theme-toggle:is(:hover, :focus-visible) > .sun-and-moon > :is(.moon, .sun) {
+    fill: var(--icon-fill-hover);
+}
+
+.theme-toggle:is(:hover, :focus-visible) .sun-and-moon > .sun-beams {
+    stroke: var(--icon-fill-hover);
+}
+
+/* end of code for changing icon colors dependent on light or dark mode */
+
+.sun-and-moon > :is(.moon, .sun, .sun-beams) {
+  transform-origin: center;
+}
+
+.sun-and-moon > :is(.moon, .sun) {
+  fill: var(--icon-fill);
+}
+
+.theme-toggle:is(:hover, :focus-visible) > .sun-and-moon > :is(.moon, .sun) {
+  fill: var(--icon-fill-hover);
+}
+
+.sun-and-moon > .sun-beams {
+  stroke: var(--icon-fill);
+  stroke-width: 2px;
+}
+
+.theme-toggle:is(:hover, :focus-visible) .sun-and-moon > .sun-beams {
+    stroke: black;
+}
+
+[data-theme="dark"] .sun-and-moon > .sun {
+  transform: scale(1.75);
+}
+
+[data-theme="dark"] .sun-and-moon > .sun-beams {
+  opacity: 0;
+}
+
+[data-theme="light"] .sun-and-moon > .sun-beams {
+    opacity: 1;
+  }
+
+[data-theme="dark"] .sun-and-moon > .moon > circle {
+  transform: translateX(-7px);
+}
+
+@supports (cx: 1) {
+  [data-theme="dark"] .sun-and-moon > .moon > circle {
+    cx: 17;
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .sun-and-moon > .sun {
+    transition: transform .5s var(--ease-elastic-3);
+  }
+
+  .sun-and-moon > .sun-beams {
+    transition: transform .5s var(--ease-elastic-4), opacity .5s var(--ease-3);
+  }
+
+  .sun-and-moon > .sun-beams {
+    transition: transform .5s var(--ease-elastic-4), opacity .5s var(--ease-3);
+    stroke: black; /* Set to black or another visible color */
+    stroke-width: 2px;
+  }
+
+  .sun-and-moon .moon > circle {
+    transition: transform .25s var(--ease-out-5);
+  }
+
+  @supports (cx: 1) {
+    .sun-and-moon .moon > circle {
+      transition: cx .25s var(--ease-out-5);
+    }
+  }
+
+  [data-theme="dark"] .sun-and-moon > .sun {
+    transition-timing-function: var(--ease-3);
+    transition-duration: .25s;
+    transform: scale(1.75);
+  }
+
+  [data-theme="dark"] .sun-and-moon > .sun-beams {
+    transition-duration: .15s;
+    transform: rotateZ(-25deg);
+  }
+
+  [data-theme="dark"] .sun-and-moon > .moon > circle {
+    transition-duration: .5s;
+    transition-delay: .25s;
+  }
+}
+
+/* end of sun-moon light mode-dark mode button css */
+
+
 body { 
-    font-family: 'Arial', sans-serif; 
+    font-family: 'Poppins', sans-serif;
     background-color: #f4f4f4; 
     margin: 0; 
     padding: 0; 
     color: #333; 
- } 
-  
- .navbar { 
+    transition: background-color 0.3s, color 0.3s;
+} 
+
+/* Dark Mode Styles */
+.dark-theme {
+    background-color: #222;
+    color: #ddd;
+}
+
+.dark-theme .home, 
+.dark-theme .projects, 
+.dark-theme .about, 
+.dark-theme .contact {
+    background: #2a2a2a;
+    color: white;
+    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Navbar General Styles */
+/* Navbar General Styles */
+.navbar { 
     display: flex; 
-    justify-content: center; 
-    background-color: #333; 
-    padding: 15px 0; 
- } 
-  
- .navbar a { 
-    color: white; 
+    justify-content: space-between; 
+    align-items: center;
+    padding: 15px 20px; 
+    transition: background-color 0.3s;
+} 
+
+.nav-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+    margin-right: auto; /* Pushes other elements to the right */
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Theme Toggle in Navbar */
+.navbar .theme-toggle {
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    margin-left: auto; /* Pushes to far right */
+    order: 2; /* Ensures it stays on the right */
+}
+
+/* Adjust link styles */
+.nav-links a {
+    text-decoration: none; 
+    padding: 8px 12px; 
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Existing light/dark mode styles for navbar can stay the same */
+
+/* General Navbar Links */
+.navbar a { 
     text-decoration: none; 
     margin: 0 15px; 
     padding: 10px 15px; 
-    transition: background-color 0.3s; 
- } 
-  
- .navbar a:hover { 
-    background-color: #575757; 
- } 
-  
- .home, .projects, .about, .contact { 
+    border-radius: 10px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* FIX: Prevent purple visited links */
+.navbar a:visited {
+    color: inherit !important;
+}
+
+/* Light Mode Navbar */
+.navbar.light {
+    background-color: #f4f4f4; /* Light background */
+}
+
+.navbar.light a {
+    color: #333 !important; /* Dark text */
+}
+
+.navbar.light a:hover {
+    background-color: #ddd; /* Light hover effect */
+}
+
+/* Dark Mode Navbar */
+.navbar.dark {
+    background-color: #222; /* Dark background */
+}
+
+.navbar.dark a {
+    color: white !important; /* Light text */
+}
+
+.navbar.dark a:hover {
+    background-color: #444; /* Dark hover effect */
+}
+
+
+.home, .projects, .about, .contact { 
     max-width: 800px; 
     margin: 20px auto; 
     padding: 20px; 
     background: white; 
     border-radius: 8px; 
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
- } 
-  
- h1, h2 { 
+} 
+
+h1, h2 { 
     color: #4A90E2; 
- } 
+}
+
+.skills-list li:not(:last-child)::after {
+    content : ", ";
+}
+
+/* Project Images */
+.project-image {
+    width: 150px; 
+    max-width: 300px;  
+    height: 150px;  
+    border-radius: 8px;  
+    display: block;  
+    margin: 10px auto;  
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    text-align: center;
+    margin: 10px;
+}
+
+.theme-toggle button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.theme-toggle button:hover {
+    background-color: #0056b3;
+}
+
+/* Dark Mode Button */
+.dark-theme .theme-toggle button {
+    background-color: #ff9800;
+    color: black;
+}
+
+.dark-theme .theme-toggle button:hover {
+    background-color: #e68900;
+}
+
+/* Projects Section */
+.project-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.project-item {
+    margin: 15px 0;
+    text-align: center;
+}
+
+.project-btn {
+    background-color: #007bff;
+    color: white;
+    font-size: 18px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.project-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Links inside buttons */
+.project-btn a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.project-btn a:hover {
+    text-decoration: underline;
+}
+
+/* Expanded project details */
+.project-details {
+    margin-top: 10px;
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Dark mode for project details */
+.dark-theme .project-details {
+    background: #2a2a2a;
+}
+
+/* Project Images */
+.project-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* Tags Section */
+.tags {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.tag {
+    display: inline-block;
+    background: #007bff;
+    color: white;
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.dark-theme .tag {
+    background: #ff9800;
+    color: black;
+}
+
+/* Smooth Animation */
+.project-details {
+    max-height: 0; 
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out, opacity 0.3s ease-in-out, padding 0.3s ease-in-out;
+    padding: 0 15px;
+}
+
+.project-item .expanded {
+    max-height: 500px;
+    opacity: 1;
+    padding: 15px;
+}

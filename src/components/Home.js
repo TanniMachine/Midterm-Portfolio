@@ -4,8 +4,9 @@ const Home = () => {
     console.log("Home component rendered!");
    return ( 
        <div className="home"> 
-           <h1>Welcome to My Portfolio</h1> 
-           <p>Hi! I'm [Your Name], a web developer.</p> 
+           <h3>Welcome to My Portfolio</h3> 
+           <h2>Hello!</h2>
+           <h1>I am Carlos Miguel Morato.</h1> 
        </div> 
    ); 
 }; 
