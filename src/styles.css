@@ -84,7 +84,7 @@
 
   .sun-and-moon > .sun-beams {
     transition: transform .5s var(--ease-elastic-4), opacity .5s var(--ease-3);
-    stroke: black; /* Set to black or another visible color */
+    stroke: black;
     stroke-width: 2px;
   }
 
@@ -142,7 +142,6 @@ body {
     box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
 }
 
-/* Navbar General Styles */
 /* Navbar General Styles */
 .navbar { 
     display: flex; 
@@ -237,8 +236,58 @@ body {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
 } 
 
+.home {
+    text-align: center;
+    padding: 20px;
+}
+
+.profile-photo {
+    width: 200px;  /* Adjust size as needed */
+    height: auto;
+    border-radius: 50%;  /* Makes the image circular */
+    margin-top: 20px; /* Adds spacing between name and photo */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Optional: Adds a slight shadow */
+}
+
 h1, h2 { 
     color: #4A90E2; 
+}
+
+/* Skills Section */
+.skills-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* Spacing between the boxes */
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.skills-box {
+    flex: 1;
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    min-width: 300px;
+}
+
+.dark-theme .skills-box {
+    background: #2a2a2a;
+    color: white;
+}
+
+.skills-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    font-size: 16px;
+}
+
+.skills-list li {
+    display: block;
+    margin: 5px;
+    font-weight: 500;
 }
 
 .skills-list li:not(:last-child)::after {
@@ -249,40 +298,72 @@ h1, h2 {
 .project-image {
     width: 150px; 
     max-width: 300px;  
-    height: 150px;  
+    height: auto; 
     border-radius: 8px;  
     display: block;  
     margin: 10px auto;  
+    border-radius: 8px;
+    flex-shrink: 0; /* Prevents it from shrinking */
 }
 
-/* Theme Toggle Button */
-.theme-toggle {
+/* Layout for project details */
+.project-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 25px;
+}
+
+/* Project Info (contains description and tags) */
+.project-info {
+    flex-grow: 1; /* Takes up remaining space */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ensure tags are below description */
+.project-description {
+    margin-bottom: 10px;
+}
+
+/* for image + link */
+.image-link-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    width: 400px;
+}
+
+.project-link {
+    width: 100%;
+    max-width: 200px;
     text-align: center;
-    margin: 10px;
+    padding: 8px 12px;
+    margin-top: 0;
+    border-radius: 8px;
 }
 
-.theme-toggle button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 15px;
+.project-link:hover {
+    color: #0056b3;
     cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+    transition: color 0.3s ease-in-out;
 }
 
-.theme-toggle button:hover {
-    background-color: #0056b3;
+.dark-theme .project-link {
+    color: rgb(255, 255, 255);
 }
 
-/* Dark Mode Button */
-.dark-theme .theme-toggle button {
-    background-color: #ff9800;
-    color: black;
+.dark-theme .project-link:hover {
+    color: #e68900;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
 }
 
-.dark-theme .theme-toggle button:hover {
-    background-color: #e68900;
+/* Keep tags aligned properly */
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
 }
 
 /* Projects Section */
@@ -296,31 +377,42 @@ h1, h2 {
     text-align: center;
 }
 
+/* Stylish Project Buttons */
 .project-btn {
-    background-color: #007bff;
-    color: white;
+    padding: 14px 24px;
     font-size: 18px;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-}
-
-.project-btn:hover {
-    background-color: #0056b3;
-}
-
-/* Links inside buttons */
-.project-btn a {
-    color: white;
-    text-decoration: none;
     font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    display: block;
+    text-align: left;
+    width: fit-content;
+    margin: 10px 0;
 }
 
-.project-btn a:hover {
-    text-decoration: underline;
+/* Hover effect: Slight Scale & Glow */
+.project-btn:hover {
+    transform: translateY(-2px) scale(1.05);
+    background: linear-gradient(135deg, #0056b3, #003f7f);
+    box-shadow: 0 6px 12px rgba(0, 123, 255, 0.5);
 }
+
+/* Active (Click) Effect */
+.project-btn:active {
+    transform: scale(0.98);
+    box-shadow: 0 2px 5px rgba(0, 123, 255, 0.3);
+}
+
 
 /* Expanded project details */
 .project-details {
@@ -337,13 +429,6 @@ h1, h2 {
     background: #2a2a2a;
 }
 
-/* Project Images */
-.project-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    margin-bottom: 10px;
-}
 
 /* Tags Section */
 .tags {
@@ -355,17 +440,17 @@ h1, h2 {
 
 .tag {
     display: inline-block;
-    background: #007bff;
+    background: linear-gradient(135deg, #0056b3, #003f7f);
+    box-shadow: 0 6px 12px rgba(0, 123, 255, 0.3);
     color: white;
     padding: 5px 10px;
     margin: 5px;
     border-radius: 5px;
     font-size: 14px;
-}
-
-.dark-theme .tag {
-    background: #ff9800;
-    color: black;
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 /* Smooth Animation */
@@ -382,3 +467,155 @@ h1, h2 {
     opacity: 1;
     padding: 15px;
 }
+
+.education-container {
+    background: #f9f9f9; /* Light gray background */
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    margin: 15px auto;;
+}
+
+.dark-theme .education-container {
+    background: #2a2a2a;
+    color: white;
+}
+
+.education-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #007bff; /* Blue underline */
+    padding-bottom: 5px;
+    margin-bottom: 8px;
+}
+
+.education-years {
+    font-size: 16px;
+    font-weight: bold;
+    color: #007bff;
+}
+
+.education-degree {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.education-description {
+    font-size: 16px;
+    color: #555;
+}
+
+.dark-theme .education-description {
+    color: #ccc;
+}
+
+.contact {
+    text-align: center;
+    max-width: 700px;
+    margin: auto;
+    padding: 20px;
+}
+
+.contact h1 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.dark-theme .contact h1 {
+    color: #f1f1f1;
+}
+
+/* QR Code Styling */
+.qr-code-container {
+    margin: 20px 0;
+}
+
+.qr-code {
+    width: 150px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Contact Links */
+.contact-links {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.contact-links a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.dark-theme .contact-links a {
+    color: #ff9800;
+}
+
+.contact-links a:hover {
+    text-decoration: underline;
+}
+
+/* Social Links - Flexbox */
+.contact-social {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px; /* Spacing between links */
+}
+
+.contact-social li {
+    display: inline-block;
+}
+
+.contact-social a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.dark-theme .contact-social a {
+    color: #ff9800;
+}
+
+.contact-social a:hover {
+    text-decoration: underline;
+}
+
+.contact-social li:not(:last-child)::after {
+    content : ", ";
+    color: inherit; /* Ensures dark mode doesn't break the comma color */
+}
+
+/* Page Transition Container */
+.page-transition {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Slide-in From Bottom with Fade-in */
+.page-transition > * {
+    animation: slideUpFade 1.2s ease-in-out;
+}
+
+/* Keyframes for Sliding Up + Fade-in */
+@keyframes slideUpFade {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+

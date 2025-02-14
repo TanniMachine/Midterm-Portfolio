@@ -1,10 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import Home from './components/Home';
 import Projects from './components/Projects';
 import About from './components/About';
 import Contact from './components/Contact';
 import Navbar from './components/Navbar';
+
+const AnimatedRoutes = () => {
+    const location = useLocation(); // Get current route
+
+    return (
+        <div className="page-transition">
+            <Routes location={location} key={location.pathname}>
+                <Route index element={<Home />} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
+            </Routes>
+        </div>
+    );
+};
 
 const AppRouter = () => {
     const [darkMode, setDarkMode] = useState(() => {
@@ -24,13 +39,8 @@ const AppRouter = () => {
 
     return (
         <Router>
-            <Navbar darkMode={darkMode} toggleTheme={toggleTheme} /> {/* darkMode and toggleTheme passed here so Navbar light-dark btn works */}
-            <Routes>
-                <Route index element={<Home />} />
-                <Route path="/projects" element={<Projects />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/contact" element={<Contact />} />
-            </Routes>
+            <Navbar darkMode={darkMode} toggleTheme={toggleTheme} />
+            <AnimatedRoutes />
         </Router>
     );
 };
