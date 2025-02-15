@@ -115,8 +115,7 @@
   }
 }
 
-/* end of sun-moon light mode-dark mode button css */
-
+/* start of general styles */
 
 body { 
     font-family: 'Poppins', sans-serif;
@@ -127,7 +126,7 @@ body {
     transition: background-color 0.3s, color 0.3s;
 } 
 
-/* Dark Mode Styles */
+/* dark mode styles */
 .dark-theme {
     background-color: #222;
     color: #ddd;
@@ -142,7 +141,7 @@ body {
     box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
 }
 
-/* Navbar General Styles */
+/* navbar general styles */
 .navbar { 
     display: flex; 
     justify-content: space-between; 
@@ -155,7 +154,7 @@ body {
     font-size: 1.2rem;
     font-weight: bold;
     text-decoration: none;
-    margin-right: auto; /* Pushes other elements to the right */
+    margin-right: auto;
 }
 
 .nav-links {
@@ -166,17 +165,16 @@ body {
     transform: translateX(-50%);
 }
 
-/* Theme Toggle in Navbar */
+/* theme toggle in navbar */
 .navbar .theme-toggle {
     background: none;
     border: none;
     padding: 8px;
     cursor: pointer;
-    margin-left: auto; /* Pushes to far right */
-    order: 2; /* Ensures it stays on the right */
+    margin-left: auto; /* pushes to far right */
+    order: 2; /* ensures it stays on the right */
 }
 
-/* Adjust link styles */
 .nav-links a {
     text-decoration: none; 
     padding: 8px 12px; 
@@ -184,9 +182,7 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
-/* Existing light/dark mode styles for navbar can stay the same */
-
-/* General Navbar Links */
+/* general navbar links */
 .navbar a { 
     text-decoration: none; 
     margin: 0 15px; 
@@ -195,37 +191,36 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
-/* FIX: Prevent purple visited links */
+/* FIX: prevent purple visited links */
 .navbar a:visited {
     color: inherit !important;
 }
 
-/* Light Mode Navbar */
+/* light mode navbar */
 .navbar.light {
-    background-color: #f4f4f4; /* Light background */
+    background-color: #f4f4f4;
 }
 
 .navbar.light a {
-    color: #333 !important; /* Dark text */
+    color: #333 !important;
 }
 
 .navbar.light a:hover {
-    background-color: #ddd; /* Light hover effect */
+    background-color: #ddd;
 }
 
-/* Dark Mode Navbar */
+/* dark mode navbar */
 .navbar.dark {
-    background-color: #222; /* Dark background */
+    background-color: #222;
 }
 
 .navbar.dark a {
-    color: white !important; /* Light text */
+    color: white !important;
 }
 
 .navbar.dark a:hover {
-    background-color: #444; /* Dark hover effect */
+    background-color: #444;
 }
-
 
 .home, .projects, .about, .contact { 
     max-width: 800px; 
@@ -242,22 +237,22 @@ body {
 }
 
 .profile-photo {
-    width: 200px;  /* Adjust size as needed */
+    width: 200px;
     height: auto;
-    border-radius: 50%;  /* Makes the image circular */
-    margin-top: 20px; /* Adds spacing between name and photo */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Optional: Adds a slight shadow */
+    border-radius: 50%;
+    margin-top: 20px; /* adds spacing between name and photo */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* adds a slight shadow */
 }
 
 h1, h2 { 
     color: #4A90E2; 
 }
 
-/* Skills Section */
+/* skills section */
 .skills-container {
     display: flex;
     justify-content: space-between;
-    gap: 20px; /* Spacing between the boxes */
+    gap: 20px; /* spacing between the boxes */
     max-width: 800px;
     margin: 20px auto;
 }
@@ -294,7 +289,6 @@ h1, h2 {
     content : ", ";
 }
 
-/* Project Images */
 .project-image {
     width: 150px; 
     max-width: 300px;  
@@ -303,24 +297,24 @@ h1, h2 {
     display: block;  
     margin: 10px auto;  
     border-radius: 8px;
-    flex-shrink: 0; /* Prevents it from shrinking */
+    flex-shrink: 0; /* prevents it from shrinking */
 }
 
-/* Layout for project details */
+/* layout for project details */
 .project-content {
     display: flex;
     align-items: flex-start;
     gap: 25px;
 }
 
-/* Project Info (contains description and tags) */
+/* project info (contains description and tags) */
 .project-info {
-    flex-grow: 1; /* Takes up remaining space */
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
 }
 
-/* Ensure tags are below description */
+/* ensure tags are below description */
 .project-description {
     margin-bottom: 10px;
 }
@@ -359,14 +353,6 @@ h1, h2 {
     transition: color 0.3s ease-in-out;
 }
 
-/* Keep tags aligned properly */
-.tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-/* Projects Section */
 .project-list {
     list-style-type: none;
     padding: 0;
@@ -377,7 +363,6 @@ h1, h2 {
     text-align: center;
 }
 
-/* Stylish Project Buttons */
 .project-btn {
     padding: 14px 24px;
     font-size: 18px;
@@ -400,21 +385,21 @@ h1, h2 {
     margin: 10px 0;
 }
 
-/* Hover effect: Slight Scale & Glow */
+/* hover effect: slight scale & glow */
 .project-btn:hover {
     transform: translateY(-2px) scale(1.05);
     background: linear-gradient(135deg, #0056b3, #003f7f);
     box-shadow: 0 6px 12px rgba(0, 123, 255, 0.5);
 }
 
-/* Active (Click) Effect */
+/* active (click) effect */
 .project-btn:active {
     transform: scale(0.98);
     box-shadow: 0 2px 5px rgba(0, 123, 255, 0.3);
 }
 
 
-/* Expanded project details */
+/* expanded project details */
 .project-details {
     margin-top: 10px;
     background: #f9f9f9;
@@ -423,19 +408,17 @@ h1, h2 {
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease-in-out;
 }
-
-/* Dark mode for project details */
 .dark-theme .project-details {
     background: #2a2a2a;
 }
 
-
-/* Tags Section */
+/* tags section */
 .tags {
     margin-top: 10px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 8px;
 }
 
 .tag {
@@ -453,7 +436,7 @@ h1, h2 {
     justify-content: center;
 }
 
-/* Smooth Animation */
+/* smooth animation for modals-ish */
 .project-details {
     max-height: 0; 
     opacity: 0;
@@ -469,7 +452,7 @@ h1, h2 {
 }
 
 .education-container {
-    background: #f9f9f9; /* Light gray background */
+    background: #f9f9f9;
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
@@ -486,7 +469,7 @@ h1, h2 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px solid #007bff; /* Blue underline */
+    border-bottom: 2px solid #007bff;
     padding-bottom: 5px;
     margin-bottom: 8px;
 }
@@ -529,7 +512,7 @@ h1, h2 {
     color: #f1f1f1;
 }
 
-/* QR Code Styling */
+/* qr code stlyes */
 .qr-code-container {
     margin: 20px 0;
 }
@@ -541,7 +524,6 @@ h1, h2 {
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Contact Links */
 .contact-links {
     font-size: 18px;
     margin-bottom: 20px;
@@ -560,7 +542,7 @@ h1, h2 {
     text-decoration: underline;
 }
 
-/* Social Links - Flexbox */
+/* social links - flexbox */
 .contact-social {
     list-style: none;
     padding: 0;
@@ -568,7 +550,7 @@ h1, h2 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 15px; /* Spacing between links */
+    gap: 15px; /* spacing between links */
 }
 
 .contact-social li {
@@ -595,18 +577,16 @@ h1, h2 {
     color: inherit; /* Ensures dark mode doesn't break the comma color */
 }
 
-/* Page Transition Container */
+/* page transitions! very cool */
 .page-transition {
     position: relative;
     overflow: hidden;
 }
 
-/* Slide-in From Bottom with Fade-in */
 .page-transition > * {
     animation: slideUpFade 1.2s ease-in-out;
 }
 
-/* Keyframes for Sliding Up + Fade-in */
 @keyframes slideUpFade {
     from {
         transform: translateY(100%);

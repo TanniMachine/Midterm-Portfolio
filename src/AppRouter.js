@@ -7,7 +7,7 @@ import Contact from './components/Contact';
 import Navbar from './components/Navbar';
 
 const AnimatedRoutes = () => {
-    const location = useLocation(); // Get current route
+    const location = useLocation();
 
     return (
         <div className="page-transition">

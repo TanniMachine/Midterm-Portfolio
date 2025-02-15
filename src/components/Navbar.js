@@ -4,10 +4,8 @@ import { Link } from 'react-router-dom';
 const Navbar = ({ darkMode, toggleTheme }) => {
     return (
         <nav className={`navbar ${darkMode ? "dark" : "light"}`}>
-            {/* Left side - Your Name */}
             <Link to="/" className="nav-name">CARLOS MORATO</Link>
             
-            {/* Center links */}
             <div className="nav-links">
                 <Link to="/">Home</Link>
                 <Link to="/projects">Projects</Link>
@@ -15,7 +13,6 @@ const Navbar = ({ darkMode, toggleTheme }) => {
                 <Link to="/contact">Contact</Link>
             </div>
             
-            {/* Right side - Theme Toggle */}
             <button 
                 className="theme-toggle" 
                 onClick={toggleTheme}

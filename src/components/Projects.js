@@ -20,7 +20,7 @@ const Projects = () => {
             name: "Plate Pal", 
             description: "Android application that provided recipes for all sorts of food items, all with instructions and YouTube links that led to detailed directions in video format.", 
             image: platePalLogo, 
-            tags: ["Android Studio", "Android Application", "Runs on Android Devices", "Recipe Application"],
+            tags: ["Android Application", "Runs on Android Devices", "Recipe Application"],
             url: "https://github.com/TanniKing/RecipeApp",
         },
         { 

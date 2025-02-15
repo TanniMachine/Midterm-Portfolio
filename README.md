@@ -1,3 +1,56 @@
+# Midterm Portfolio
+
+## Overview
+This project is a midterms portfolio created for **CSELEC3**. It is a React-based web application with the following sections:
+- **Home**
+- **About**
+- **Projects**
+- **Contact**
+
+A **theme toggle** is implemented, allowing users to switch between **dark mode** (default) and **light mode**. The project utilizes **React Native**, **Routing**, and **useState** for managing the UI state.
+
+---
+
+## Getting Started
+
+### Prerequisites
+Ensure you have the following installed:
+- **Node.js** (LTS recommended, as very recent versions may cause issues)
+- **npm** (comes with Node.js)
+
+### Installation
+Navigate to the project's root directory and run the following commands:
+
+```sh
+npm install
+npm install --save-dev web-vitals
+npm install react-router-dom
+```
+
+### Running the Project
+To start the application, run:
+
+```sh
+npm start
+```
+
+Alternatively, you can use the provided **batch file** (`start_project.bat`):
+
+```sh
+@echo off
+cd /d D:\Projects\midterm-portfolio  # Change this to your own directory
+npm start
+```
+
+If you encounter issues due to a newer Node.js version, use the following command:
+
+```sh
+set NODE_OPTIONS=--openssl-legacy-provider
+npm start
+```
+
+---
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
